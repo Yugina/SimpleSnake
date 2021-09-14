@@ -4,4 +4,5 @@ This is just a basic clone of the classic Snake game made with Godot. I made it 
 You can play the game online here: https://yugina.itch.io/simplesnake
 
 Sound effects source: https://opengameart.org/content/nes-8-bit-sound-effects
+
 Icons source: https://opengameart.org/content/game-icons
