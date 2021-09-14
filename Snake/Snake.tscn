@@ -1,0 +1,72 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://Snake/SnakeHead.gd" type="Script" id=1]
+[ext_resource path="res://icon.png" type="Texture" id=2]
+[ext_resource path="res://Snake/Snake.gd" type="Script" id=3]
+[ext_resource path="res://Sounds/77_arrowbounce.wav" type="AudioStream" id=4]
+[ext_resource path="res://Sounds/53_step2.wav" type="AudioStream" id=5]
+[ext_resource path="res://Sounds/54_step3.wav" type="AudioStream" id=6]
+[ext_resource path="res://Sounds/52_step1.wav" type="AudioStream" id=7]
+[ext_resource path="res://Sounds/55_step4.wav" type="AudioStream" id=8]
+[ext_resource path="res://Sounds/59_confirm.wav" type="AudioStream" id=9]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 14, 14 )
+
+[node name="Snake" type="Node"]
+pause_mode = 1
+script = ExtResource( 3 )
+
+[node name="MoveTimer" type="Timer" parent="."]
+process_mode = 0
+wait_time = 0.125
+one_shot = true
+
+[node name="BodyParts" type="Node" parent="."]
+
+[node name="SnakeHead" type="Area2D" parent="BodyParts" groups=[
+"bodyparts",
+]]
+position = Vector2( 176, 464 )
+collision_mask = 14
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="BodyParts/SnakeHead"]
+modulate = Color( 0, 0, 0, 1 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BodyParts/SnakeHead"]
+shape = SubResource( 1 )
+
+[node name="Sounds" type="Node" parent="BodyParts/SnakeHead"]
+pause_mode = 2
+
+[node name="Directions" type="Node" parent="BodyParts/SnakeHead/Sounds"]
+
+[node name="UpSound" type="AudioStreamPlayer" parent="BodyParts/SnakeHead/Sounds/Directions"]
+stream = ExtResource( 7 )
+
+[node name="DownSound" type="AudioStreamPlayer" parent="BodyParts/SnakeHead/Sounds/Directions"]
+stream = ExtResource( 5 )
+
+[node name="LeftSound" type="AudioStreamPlayer" parent="BodyParts/SnakeHead/Sounds/Directions"]
+stream = ExtResource( 8 )
+
+[node name="RightSound" type="AudioStreamPlayer" parent="BodyParts/SnakeHead/Sounds/Directions"]
+stream = ExtResource( 6 )
+
+[node name="HitSound" type="AudioStreamPlayer" parent="BodyParts/SnakeHead/Sounds"]
+stream = ExtResource( 4 )
+
+[node name="PickupSound" type="AudioStreamPlayer" parent="BodyParts/SnakeHead/Sounds"]
+stream = ExtResource( 9 )
+
+[connection signal="timeout" from="MoveTimer" to="BodyParts/SnakeHead" method="_on_MoveTimer_timeout"]
+[connection signal="area_entered" from="BodyParts/SnakeHead" to="BodyParts/SnakeHead" method="_on_SnakeHead_area_entered"]
+[connection signal="eaten" from="BodyParts/SnakeHead" to="." method="_on_SnakeHead_eaten"]
+[connection signal="hit" from="BodyParts/SnakeHead" to="." method="_on_SnakeHead_hit"]
+[connection signal="moved" from="BodyParts/SnakeHead" to="." method="_on_SnakeHead_moved"]

@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/59_confirm.wav-79749d4c615ee01080da65d3016d0078.sample"
+
+[deps]
+
+source_file="res://Sounds/59_confirm.wav"
+dest_files=[ "res://.import/59_confirm.wav-79749d4c615ee01080da65d3016d0078.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

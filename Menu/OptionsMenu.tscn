@@ -1,0 +1,120 @@
+[gd_scene format=2]
+
+[node name="OptionsMenu" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_constants/margin_right = 80
+custom_constants/margin_top = 80
+custom_constants/margin_left = 80
+custom_constants/margin_bottom = 80
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="OptionsColumns" type="HBoxContainer" parent="MarginContainer"]
+margin_left = 80.0
+margin_top = 80.0
+margin_right = 496.0
+margin_bottom = 131.0
+size_flags_horizontal = 3
+size_flags_vertical = 0
+
+[node name="OptionsLabels" type="VBoxContainer" parent="MarginContainer/OptionsColumns"]
+margin_right = 50.0
+margin_bottom = 51.0
+rect_min_size = Vector2( 50, 0 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SpeedLabel" type="Label" parent="MarginContainer/OptionsColumns/OptionsLabels"]
+modulate = Color( 0.815686, 0.815686, 0.815686, 1 )
+margin_right = 50.0
+margin_bottom = 45.0
+rect_min_size = Vector2( 50, 45 )
+text = "Speed:"
+align = 1
+valign = 1
+
+[node name="Divider" type="HSplitContainer" parent="MarginContainer/OptionsColumns"]
+margin_left = 54.0
+margin_right = 125.0
+margin_bottom = 51.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="OptionsSelections" type="VBoxContainer" parent="MarginContainer/OptionsColumns"]
+margin_left = 129.0
+margin_right = 416.0
+margin_bottom = 51.0
+
+[node name="SpeedOptions" type="HBoxContainer" parent="MarginContainer/OptionsColumns/OptionsSelections"]
+margin_right = 287.0
+margin_bottom = 31.0
+custom_constants/separation = 20
+
+[node name="SuperSlow" type="Label" parent="MarginContainer/OptionsColumns/OptionsSelections/SpeedOptions"]
+margin_right = 40.0
+margin_bottom = 31.0
+rect_min_size = Vector2( 40, 0 )
+text = "Super
+Slow"
+align = 1
+valign = 1
+
+[node name="Slow" type="Label" parent="MarginContainer/OptionsColumns/OptionsSelections/SpeedOptions"]
+margin_left = 60.0
+margin_top = 8.0
+margin_right = 100.0
+margin_bottom = 22.0
+rect_min_size = Vector2( 40, 0 )
+text = "Slow"
+align = 1
+valign = 1
+
+[node name="Normal" type="Label" parent="MarginContainer/OptionsColumns/OptionsSelections/SpeedOptions"]
+margin_left = 120.0
+margin_top = 8.0
+margin_right = 167.0
+margin_bottom = 22.0
+rect_min_size = Vector2( 40, 0 )
+text = "Normal"
+align = 1
+valign = 1
+
+[node name="Fast" type="Label" parent="MarginContainer/OptionsColumns/OptionsSelections/SpeedOptions"]
+margin_left = 187.0
+margin_top = 8.0
+margin_right = 227.0
+margin_bottom = 22.0
+rect_min_size = Vector2( 40, 0 )
+text = "Fast"
+align = 1
+valign = 1
+
+[node name="SuperFast" type="Label" parent="MarginContainer/OptionsColumns/OptionsSelections/SpeedOptions"]
+margin_left = 247.0
+margin_right = 287.0
+margin_bottom = 31.0
+rect_min_size = Vector2( 40, 0 )
+text = "Super
+Fast"
+align = 1
+valign = 1
+
+[node name="SpeedSlider" type="HSlider" parent="MarginContainer/OptionsColumns/OptionsSelections"]
+margin_top = 35.0
+margin_right = 287.0
+margin_bottom = 51.0
+max_value = 200.0
+step = 50.0
+value = 100.0
+tick_count = 5
+ticks_on_borders = true
